@@ -383,7 +383,8 @@ public class Main implements DiagnosticListener<JavaFileObject> {
 
         options.addAll(List.of("--release", release));
 
-        if (hasModules) {
+        //dingyi modify: always no load modules
+        if (false) {
             List<String> rootMods = hasJavaSE_EE ? List.of("java.se", "java.se.ee")
                                                  : List.of("java.se");
             TraverseProc proc = new TraverseProc(rootMods);

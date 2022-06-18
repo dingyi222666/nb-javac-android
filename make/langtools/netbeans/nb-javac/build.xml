@@ -89,10 +89,10 @@
     </target>
     
     <target name="-separate-jars">
-        <jar destfile="${dist.dir}/nb-javac-${nb-javac-ver}-api.jar">
+        <jar destfile="${dist.dir}/nb-javac-${nb-javac-ver}.jar">
             <fileset dir="${build.classes.dir}">
                <!-- <include name="com/sun/javadoc/**/*"/> -->
-                <include name="com/sun/source/**/*"/>
+                <include name="com/sun/**/*"/>
                 <include name="javax/lang/**/*"/>
                 <include name="javax/tools/*"/>
                 <include name="jdk/internal/PreviewFeature*"/>
@@ -104,9 +104,10 @@
                 <include name="SECURITY.md"/>
             </fileset>
         </jar>
-        <jar destfile="${dist.dir}/nb-javac-${nb-javac-ver}-impl.jar">
+        <!-- <jar destfile="${dist.dir}/nb-javac-${nb-javac-ver}-impl.jar">
             <fileset dir="${build.classes.dir}">
                 <include name="com/sun/tools/**/*"/>
+                <include name="com/sun/nio/**/*"/>
 		<include name="jdk/internal/shellsupport/**/*"/>
                 <include name="jdk/internal/PreviewFeature*"/>
                 <include name="java/lang/**/*"/>
@@ -116,7 +117,7 @@
                 <include name="LICENSE.txt"/>
                 <include name="SECURITY.md"/>
             </fileset>
-        </jar>
+        </jar> -->
         <delete file="${dist.jar}"/>
     </target>
     

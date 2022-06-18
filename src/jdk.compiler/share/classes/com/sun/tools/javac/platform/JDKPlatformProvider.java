@@ -251,7 +251,7 @@ public class JDKPlatformProvider implements PlatformProvider {
 
             Path file = findCtSym();
             // file == ${jdk.home}/lib/ct.sym
-            if (Files.exists(file)) {
+            // if (Files.exists(file)) { 
                 try {
                     FileSystem fs = ctSym2FileSystem.get(file);
                     if (fs == null) {
@@ -264,7 +264,9 @@ public class JDKPlatformProvider implements PlatformProvider {
                     Path systemModules = root.resolve(ctSymVersion).resolve("system-modules");
                     Charset utf8 = Charset.forName("UTF-8");
 
-                    if (!hasModules) {
+                    //dingyi modify: alaways load from platform-class-path
+
+                   /*  if (!hasModules) { */
                         List<Path> paths = new ArrayList<>();
 
                         try (DirectoryStream<Path> dir = Files.newDirectoryStream(root)) {
@@ -281,7 +283,7 @@ public class JDKPlatformProvider implements PlatformProvider {
                         }
 
                         fm.setLocationFromPaths(StandardLocation.PLATFORM_CLASS_PATH, paths);
-                    } else if (Files.isRegularFile(systemModules)) {
+                   /*  } else if (Files.isRegularFile(systemModules)) {
                         fm.handleOption("--system", Arrays.asList("none").iterator());
 
                         Path jrtModules =
@@ -316,15 +318,15 @@ public class JDKPlatformProvider implements PlatformProvider {
                                                     e.getKey(),
                                                     e.getValue());
                         }
-                    }
+                    } */
 
                     return fm;
                 } catch (IOException ex) {
                     throw new IllegalStateException(ex);
                 }
-            } else {
-                throw new IllegalStateException("Cannot find ct.sym!");
-            }
+            // } else {
+            //     throw new IllegalStateException("Cannot find ct.sym!");
+            // }
         }
 
         private static void setModule(StandardJavaFileManager fm, Path mod) {

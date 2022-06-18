@@ -80,12 +80,14 @@ public class JRTIndex {
     }
 
     public static boolean isAvailable() {
-        try {
+      //always no available
+      return false;
+       /*  try {
             FileSystems.getFileSystem(URI.create("jrt:/"));
             return true;
         } catch (ProviderNotFoundException | FileSystemNotFoundException e) {
             return false;
-        }
+        } */
     }
 
 

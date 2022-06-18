@@ -42,6 +42,7 @@ import java.util.StringTokenizer;
 import java.util.jar.Attributes;
 import java.util.jar.JarFile;
 import java.util.jar.Manifest;
+import com.sun.nio.zipfs.JarFileSystemProvider;
 
 import com.sun.tools.javac.util.Context;
 import java.nio.file.Paths;
@@ -151,15 +152,16 @@ public class FSInfo {
     private FileSystemProvider jarFSProvider;
 
     public synchronized FileSystemProvider getJarFSProvider() {
+       //dingyi modfiy: used zip file system
+
+
         if (jarFSProvider != null) {
             return jarFSProvider;
         }
-        for (FileSystemProvider provider: FileSystemProvider.installedProviders()) {
-            if (provider.getScheme().equals("jar")) {
-                return (jarFSProvider = provider);
-            }
-        }
-        return null;
+
+        return (jarFSProvider = new JarFileSystemProvider());
+      
+      
     }
 
 }

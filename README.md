@@ -1,6 +1,8 @@
 # About nb-javac!
 "nb-javac" is a patched version of OpenJDK "javac", i.e., the Java compiler. This has long been part of NetBeans, providing a highly tuned Java compiler specifically for the Java editor i.e., parsing and lexing for features such as syntax coloring, code completion.
 
+This fork makes changes to nb-javac to run on android, which allows developers interested in running java code to be able to run the java compiler on android and compile java files. This branch only runs on android because I made a lot of breaking changes.
+
 # Prerequisite
   - Git
   - Ant 1.9.9 or above

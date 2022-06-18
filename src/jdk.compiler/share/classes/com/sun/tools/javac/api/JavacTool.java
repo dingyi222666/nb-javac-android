@@ -217,7 +217,7 @@ public final class JavacTool implements JavaCompiler {
     @Override @DefinedBy(Api.COMPILER)
     public Set<SourceVersion> getSourceVersions() {
         return Collections.unmodifiableSet(EnumSet.range(SourceVersion.RELEASE_3,
-                                                         SourceVersion.latest()));
+                                                         SourceVersion.RELEASE_17));
     }
 
     @Override @DefinedBy(Api.COMPILER)

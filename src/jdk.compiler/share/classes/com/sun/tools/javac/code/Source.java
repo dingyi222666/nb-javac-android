@@ -260,6 +260,10 @@ public enum Source {
         }
 
         public boolean allowedInSource(Source source) {
+            //dingyi modify: in android, no support jdk module, so return false
+            if (optFragment == Fragments.FeatureModules) {
+              return false;
+            }
             return source.compareTo(minLevel) >= 0 &&
                     source.compareTo(maxLevel) <= 0;
         }

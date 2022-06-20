@@ -4,8 +4,7 @@ name: CI
 # events but only for the master branch
 on:
   workflow_dispatch
-  push:
-    branches: [ main ]
+
 jobs: 
   linux: 
     name: "Linux Build"
